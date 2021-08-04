@@ -25,18 +25,13 @@
 		font-size: 1.8rem;
 		color: white;
 		transition: 0.4s ease all;
-	}
-	.menu-item:hover {
-		background: #1e2b647c;
-	}
-	.menu-item:focus {
-		background: #1e2b64;
+		outline: none;
 	}
 	.menu-item__label {
 		display: flex;
 	}
 	.menu-item__label img {
-    width: 24px;
+		width: 24px;
 		margin-right: 8px;
 	}
 	.menu-item__notification {
@@ -49,5 +44,18 @@
 		font-weight: bold;
 		width: 24px;
 		height: 24px;
+	}
+
+	@media (hover: none) and (pointer: coarse) {
+	}
+
+	/* The following behavior should not occur on touch devices */
+	@media (hover: hover) and (pointer: fine) {
+		.menu-item:hover {
+			background: #1e2b647c;
+		}
+		.menu-item:focus {
+			background: #1e2b64;
+		}
 	}
 </style>
