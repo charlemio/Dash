@@ -1,48 +1,69 @@
 <script>
+	import { fly } from 'svelte/transition';
 	import MenuItem from './MenuItem.svelte';
+	let show = true;
 </script>
 
-<div class="side-panel">
-	<div class="side-panel__top-content">
-		<a class="side-panel__logo" href="/">
-			<div class="side-panel__logo__icon">
-				<img src="../static/Logo.svg" alt="Logo icon" />
+{#if show}
+	<nav class="side-panel" transition:fly={{ x: -50, opacity: 0, duration: 600 }}>
+		<div class="side-panel__top-content">
+			<div class="top-content__logo-row">
+				<a class="side-panel__logo" href="/">
+					<div class="side-panel__logo__icon">
+						<img src="../static/Logo.svg" alt="Logo icon" />
+					</div>
+					Dash
+				</a>
+				<button class="side-panel__toggle-button" on:click={() => (show = !show)}
+					><img src="../static/Less.svg" alt="toggle button" /></button
+				>
 			</div>
-			Dash
-		</a>
-		<div class="side-panel__group">
-			<h2 class="side-panel__group__label">MAIN MENU</h2>
-			<MenuItem name="Dashboard" icon="../static/Bars.svg" />
-			<MenuItem name="Inbox" icon="../static/Chat.svg" notificationCount={1} />
-		</div>
-		<div class="side-panel__group">
-			<h2 class="side-panel__group__label">Workspace</h2>
-			<MenuItem name="Accounts" icon="../static/User_box.svg" />
-			<MenuItem name="Schedule Post" icon="../static/Calendar.svg" />
-			<MenuItem name="Communities" icon="../static/Search.svg" />
-			<MenuItem name="Analytics" icon="../static/Chart.svg" />
-		</div>
-		<div class="side-panel__group">
-			<h2 class="side-panel__group__label">General</h2>
-			<MenuItem name="File & Folders" icon="../static/Folder.svg" />
-			<MenuItem name="Settings" icon="../static/Settings.svg" />
-		</div>
-	</div>
-	<div class="side-panel__bottom-content">
-		<div class="side-panel__support-card">
-			<div class="support-card__badge"><img src="../static/Questionmark.svg" alt="" /></div>
-			<div class="support-card__content">
-				<h3>Need help with <strong>Dash</strong>?</h3>
-				<button>Go to help center</button>
+			<div class="side-panel__group">
+				<h2 class="side-panel__group__label">MAIN MENU</h2>
+				<MenuItem name="Dashboard" icon="../static/Bars.svg" />
+				<MenuItem name="Inbox" icon="../static/Chat.svg" notificationCount={1} />
+			</div>
+			<div class="side-panel__group">
+				<h2 class="side-panel__group__label">Workspace</h2>
+				<MenuItem name="Accounts" icon="../static/User_box.svg" />
+				<MenuItem name="Schedule Post" icon="../static/Calendar.svg" />
+				<MenuItem name="Communities" icon="../static/Search.svg" />
+				<MenuItem name="Analytics" icon="../static/Chart.svg" />
+			</div>
+			<div class="side-panel__group">
+				<h2 class="side-panel__group__label">General</h2>
+				<MenuItem name="File & Folders" icon="../static/Folder.svg" />
+				<MenuItem name="Settings" icon="../static/Settings.svg" />
 			</div>
 		</div>
-	</div>
-</div>
+		<div class="side-panel__bottom-content">
+			<div class="side-panel__support-card">
+				<div class="support-card__badge"><img src="../static/Questionmark.svg" alt="" /></div>
+				<div class="support-card__content">
+					<h3>Need help with <strong>Dash</strong>?</h3>
+					<button>Go to help center</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+{:else}
+	<button
+		in:fly={{ x: 500, opacity: 0, duration: 800 }}
+		class="side-panel__toggle-button"
+		on:click={() => (show = !show)}
+		style="position: fixed; top: 50; left: 50; transform: scaleX(-1)"
+		><img src="../static/Less.svg" alt="toggle button" /></button
+	>
+{/if}
 
 <style>
+	.top-content__logo-row {
+		display: flex;
+		justify-content: space-between;
+	}
 	.side-panel__toggle-button {
 		position: relative;
-		right: 20px;
+		left: 20px;
 		top: 24px;
 		display: flex;
 		justify-content: center;
@@ -52,6 +73,7 @@
 		border-radius: 50%;
 		background: white;
 		border: 1px solid #dadada;
+		outline: none;
 	}
 
 	.side-panel {
@@ -63,7 +85,7 @@
 		background: #0d1a51;
 		transition: 0.4s ease;
 	}
-  
+
 	.side-panel__top-content {
 		display: flex;
 		flex-direction: column;
@@ -136,6 +158,7 @@
 		width: 160px;
 		height: 40px;
 		border-radius: 6px;
+		outline: none;
 	}
 
 	.support-card__badge {
