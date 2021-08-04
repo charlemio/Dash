@@ -2,14 +2,16 @@
 	export let icon = '';
 	export let name = '';
 	export let notificationCount = 0;
+	export let href = '';
 </script>
 
-<button class="menu-item">
+<!-- the on:click handles closing of side panel for smaller screens -->
+<a href={href} class="menu-item" on:click>
 	<div class="menu-item__label"><img src={icon} alt="" /> {name}</div>
 	{#if notificationCount > 0}
 		<div class="menu-item__notification">{notificationCount}</div>
 	{/if}
-</button>
+</a>
 
 <style>
 	.menu-item {
