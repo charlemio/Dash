@@ -10,7 +10,8 @@
 
 <style>
 	.app {
-		display: grid;
+		display: flex;
 		height: 100%;
+		background: var(--background-color);
 	}
 </style>

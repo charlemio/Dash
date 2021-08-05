@@ -1,13 +1,19 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import MenuItem from './MenuItem.svelte';
-	let show = false;
+	import { sidePanelOpen } from '../stores/AppState';
+
+	$: show = $sidePanelOpen;
+
+	function toggleSidePanel() {
+		console.log('toggling side panel');
+		$sidePanelOpen = !$sidePanelOpen;
+	};
 </script>
 
 {#if show}
 	<nav class="side-panel" transition:fly={{ x: -50, opacity: 0, duration: 300 }}>
 		<div class="side-panel__top-content">
-
 			<!-- Logo -->
 			<div class="top-content__logo-row">
 				<a class="side-panel__logo" href="/">
@@ -16,7 +22,7 @@
 					</div>
 					Dash
 				</a>
-				<button class="side-panel__toggle-button" on:click={() => (show = !show)}
+				<button class="side-panel__toggle-button" on:click={toggleSidePanel}
 					><img src="../static/Less.svg" alt="toggle button" /></button
 				>
 			</div>
@@ -52,11 +58,13 @@
 			</div>
 		</div>
 	</nav>
+
+	<!-- Show hamburger button if side panel is collapsed -->
 {:else}
 	<button
 		in:fly={{ x: -100, opacity: 0, duration: 300 }}
 		class="hamburger-button"
-		on:click={() => (show = !show)}
+		on:click={toggleSidePanel}
 	>
 		<img src="../static/bars-solid.svg" alt="toggle side bar" />
 	</button>
@@ -86,7 +94,7 @@
 	.hamburger-button {
 		position: fixed;
 		left: 20px;
-		top: 20px;
+		top: 22px;
 		width: 40px;
 		height: 40px;
 		outline: none;
@@ -139,7 +147,7 @@
 	.side-panel__group__label {
 		font-size: 1.2rem;
 		font-weight: bold;
-		color: #56cbfe;
+		color: var(--secondary-color);
 		margin-left: 30px;
 		margin-bottom: 9px;
 	}
@@ -158,7 +166,6 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		/* font-family: 'Red Hat Display', sans-serif; */
 		color: white;
 		font-size: 1.4rem;
 	}
