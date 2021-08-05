@@ -5,8 +5,10 @@
 </script>
 
 {#if show}
-	<nav class="side-panel" transition:fly={{ x: -50, opacity: 0, duration: 600 }}>
+	<nav class="side-panel" transition:fly={{ x: -50, opacity: 0, duration: 300 }}>
 		<div class="side-panel__top-content">
+
+			<!-- Logo -->
 			<div class="top-content__logo-row">
 				<a class="side-panel__logo" href="/">
 					<div class="side-panel__logo__icon">
@@ -18,6 +20,8 @@
 					><img src="../static/Less.svg" alt="toggle button" /></button
 				>
 			</div>
+
+			<!-- Menu items -->
 			<div class="side-panel__group">
 				<h2 class="side-panel__group__label">MAIN MENU</h2>
 				<MenuItem href="/" name="Dashboard" icon="../static/Bars.svg" />
@@ -36,6 +40,8 @@
 				<MenuItem href="/settings" name="Settings" icon="../static/Settings.svg" />
 			</div>
 		</div>
+
+		<!-- Support card -->
 		<div class="side-panel__bottom-content">
 			<div class="side-panel__support-card">
 				<div class="support-card__badge"><img src="../static/Questionmark.svg" alt="" /></div>
@@ -48,10 +54,9 @@
 	</nav>
 {:else}
 	<button
-		in:fly={{ x: -500, opacity: 0, duration: 300 }}
+		in:fly={{ x: -100, opacity: 0, duration: 300 }}
 		class="hamburger-button"
 		on:click={() => (show = !show)}
-		style="position: fixed; top: 50; left: 50; border: none;"
 	>
 		<img src="../static/bars-solid.svg" alt="toggle side bar" />
 	</button>
@@ -67,7 +72,7 @@
 		justify-content: space-between;
 		width: 260px;
 		min-height: 100%;
-		background: #0d1a51;
+		background: var(--primary-color);
 		transition: 0.4s ease;
 	}
 	.side-panel__top-content {
@@ -85,6 +90,7 @@
 		width: 40px;
 		height: 40px;
 		outline: none;
+		transform: scale(0.75);
 	}
 	.side-panel__toggle-button {
 		position: relative;
@@ -109,7 +115,6 @@
 		align-items: center;
 		height: 40px;
 		width: 111px;
-		font-family: 'Red Hat Display', sans-serif;
 		font-size: 2.4rem;
 		font-weight: 800;
 		color: white;
@@ -122,7 +127,7 @@
 		justify-content: center;
 		height: 40px;
 		width: 40px;
-		background: #237ef9;
+		background: var(--accent-color);
 		margin-right: 14px;
 		border-radius: 8px;
 	}
@@ -132,7 +137,6 @@
 		margin-top: 32px;
 	}
 	.side-panel__group__label {
-		font-family: 'Red Hat Display', sans-serif;
 		font-size: 1.2rem;
 		font-weight: bold;
 		color: #56cbfe;
@@ -149,12 +153,12 @@
 		height: 129px;
 		padding-top: 32px;
 		padding-bottom: 17px;
-		background: #1e2b64;
+		background: var(--primary-color--highlighted);
 		border-radius: 8px;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		font-family: 'Red Hat Display', sans-serif;
+		/* font-family: 'Red Hat Display', sans-serif; */
 		color: white;
 		font-size: 1.4rem;
 	}
@@ -162,7 +166,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: #237ef9;
+		background: var(--accent-color);
 		width: 160px;
 		height: 40px;
 		border-radius: 6px;

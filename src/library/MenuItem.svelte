@@ -6,7 +6,7 @@
 </script>
 
 <!-- the on:click handles closing of side panel for smaller screens -->
-<a href={href} class="menu-item" on:click>
+<a href={href} class="menu-item">
 	<div class="menu-item__label"><img src={icon} alt="" /> {name}</div>
 	{#if notificationCount > 0}
 		<div class="menu-item__notification">{notificationCount}</div>
@@ -22,7 +22,6 @@
 		border-radius: 7px 0 0 7px;
 		padding: 16px 25px 16px 16px;
 		margin-left: 16px;
-		font-family: 'Red Hat Display', sans-serif;
 		font-weight: 300;
 		font-size: 1.8rem;
 		color: white;
@@ -57,7 +56,7 @@
 			background: #1e2b647c;
 		}
 		.menu-item:focus {
-			background: #1e2b64;
+			background: var(--primary-color--highlighted);
 		}
 	}
 </style>
