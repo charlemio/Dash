@@ -7,8 +7,8 @@
 <div class="app">
 	<SidePanel />
 	<div class="content">
-	<TopBar />
-	<slot />
+		<TopBar />
+		<slot />
 	</div>
 </div>
 
@@ -21,7 +21,7 @@
 	.content {
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		/* height: 100%; */
 		width: 100%;
 	}
 </style>

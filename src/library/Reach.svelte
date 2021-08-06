@@ -14,6 +14,7 @@
 		justify-content: center;
 		align-items: center;
 		height: 100%;
+    min-height: 400px;
 		font-size: 3rem;
 	}
 </style>

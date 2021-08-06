@@ -19,9 +19,13 @@
 		easing: cubicOut
 	});
 
+	let width;
+
 	$: {
-		console.log('toggling padding');
-		if ($sidePanelOpen) {
+		console.log(`toggling padding with width ${width}`);
+		if (width < 900) {
+			$padding = 0;
+		} else if ($sidePanelOpen) {
 			$padding = 260;
 		} else {
 			$padding = 0;
@@ -29,8 +33,9 @@
 	}
 </script>
 
-<div in:fade class="dashboard" style="padding-left: {$padding}px">
+<svelte:window bind:innerWidth={width} />
 
+<div in:fade class="dashboard" style="padding-left: {$padding}px">
 	<!-- Reach component -->
 	<div class="reach">
 		<Card>
@@ -55,26 +60,34 @@
 
 <style>
 	.dashboard {
-		display: grid;
 		flex-grow: 1;
-		grid-template-areas:
-		/* 'top-bar top-bar top-bar' */
-		'reach reach reach'
-		'demographic demographic top-channels';
-		grid-template-rows: 1fr 1fr;
-		gap: 24px;
-		margin: 17px 34px 35px 32px;
+		margin: 10px;
 	}
-	.reach {
-		grid-area: reach;
-		height: 100%;
+
+	.dashboard > * + * {
+		margin-top: 7px;
 	}
-	.demographic {
-		grid-area: demographic;
-		height: 100%;
-	}
-	.top-channels {
-		grid-area: top-channels;
-		height: 100%;
+	@media (min-width: 900px) {
+		.dashboard {
+			display: grid;
+			grid-template-areas:
+				'reach reach reach'
+				'demographic demographic top-channels';
+			grid-template-rows: 1fr 1fr;
+			gap: 24px;
+			margin: 17px 34px 35px 32px;
+		}
+		.reach {
+			height: unset;
+			grid-area: reach;
+		}
+		.demographic {
+			height: unset;
+			grid-area: demographic;
+		}
+		.top-channels {
+			height: unset;
+			grid-area: top-channels;
+		}
 	}
 </style>

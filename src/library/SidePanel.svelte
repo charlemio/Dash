@@ -2,16 +2,9 @@
 	import { fly } from 'svelte/transition';
 	import MenuItem from './MenuItem.svelte';
 	import { sidePanelOpen } from '../stores/AppState';
-
-	$: show = $sidePanelOpen;
-
-	function toggleSidePanel() {
-		console.log('toggling side panel');
-		$sidePanelOpen = !$sidePanelOpen;
-	};
 </script>
 
-{#if show}
+{#if $sidePanelOpen}
 	<nav class="side-panel" transition:fly={{ x: -50, opacity: 0, duration: 300 }}>
 		<div class="side-panel__top-content">
 			<!-- Logo -->
@@ -22,7 +15,9 @@
 					</div>
 					Dash
 				</a>
-				<button class="side-panel__toggle-button" on:click={toggleSidePanel}
+				<button
+					class="side-panel__toggle-button"
+					on:click={() => ($sidePanelOpen = !$sidePanelOpen)}
 					><img src="../static/Less.svg" alt="toggle button" /></button
 				>
 			</div>
@@ -58,21 +53,11 @@
 			</div>
 		</div>
 	</nav>
-
-	<!-- Show hamburger button if side panel is collapsed -->
-{:else}
-	<button
-		in:fly={{ x: -100, opacity: 0, duration: 300 }}
-		class="hamburger-button"
-		on:click={toggleSidePanel}
-	>
-		<img src="../static/Hamburger.svg" alt="toggle side bar" />
-	</button>
 {/if}
 
 <style>
 	.side-panel {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		display: flex;
@@ -90,15 +75,6 @@
 	.top-content__logo-row {
 		display: flex;
 		justify-content: space-between;
-	}
-	.hamburger-button {
-		position: fixed;
-		left: 20px;
-		top: 22px;
-		width: 40px;
-		height: 40px;
-		outline: none;
-		transform: scale(0.75);
 	}
 	.side-panel__toggle-button {
 		position: relative;

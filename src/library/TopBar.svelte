@@ -1,32 +1,54 @@
 <script>
-  import { tweened } from 'svelte/motion';
-  import { cubicOut } from 'svelte/easing';
+	import { fly } from 'svelte/transition';
+	import { tweened } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
 
 	import { sidePanelOpen } from '../stores/AppState';
 
 	const padding = tweened(260, {
-    duration: 300,
-    easing: cubicOut
-  });
+		duration: 300,
+		easing: cubicOut
+	});
+
+	let width;
 
 	$: {
-		if ($sidePanelOpen) {
-			$padding = 260;
+		if (width <= 900) {
+			$padding = 72;
+		} else if ($sidePanelOpen) {
+			$padding = 312;
 		} else {
-			$padding = 20;
+			$padding = 72;
 		}
 	}
 </script>
 
+<svelte:window bind:innerWidth={width} />
+
 <div class="top-bar" style="padding-left: {$padding}px">
+	<!-- Show hamburger button if side panel is collapsed -->
+	{#if !$sidePanelOpen}
+		<button
+			in:fly={{ x: -100, opacity: 0, duration: 300 }}
+			class="top-bar__hamburger-button"
+			on:click={() => ($sidePanelOpen = !$sidePanelOpen)}
+		>
+			<img src="../static/Hamburger.svg" alt="toggle side bar" />
+		</button>
+	{/if}
 	<h2>Dashboard</h2>
 	<div class="top-bar__right-content">
 		<!-- Top right utility buttons -->
-		<a class="top-bar-item-wrapper"><img src="../static/Search.svg" alt="search" /></a>
-		<a class="top-bar-item-wrapper"><img src="../static/Bell.svg" alt="Notifications" /></a>
+		<a href="." class="top-bar-item-wrapper"><img src="../static/Search.svg" alt="Search icon" /></a
+		>
+		<a href="." class="top-bar-item-wrapper"
+			><img src="../static/Bell.svg" alt="Notification bell" /></a
+		>
 
 		<!-- Profile content -->
-		<a class="top-bar-item-wrapper"><img src="../static/ProfilePic.svg" /></a>
+		<a href="." class="top-bar-item-wrapper"
+			><img src="../static/ProfilePic.svg" alt="Profile avatar" /></a
+		>
 		<button class="top-bar__profile-dropdown"
 			><h3>Erza Miller</h3>
 			<div class="profile-dropdown__icon"><img src="../static/ChevronDown.svg" alt="" /></div>
@@ -39,14 +61,23 @@
 		grid-area: top-bar;
 		display: flex;
 		height: 90px;
+		min-height: 90px;
 		align-items: center;
 		justify-content: space-between;
 		border-bottom: 1px solid #dadada;
 	}
+	.top-bar__hamburger-button {
+		position: absolute;
+		left: 20px;
+		top: 22px;
+		width: 40px;
+		height: 40px;
+		outline: none;
+		transform: scale(0.75);
+	}
 
 	.top-bar h2 {
-		padding-left: 58px;
-		font-size: 3.2rem;
+		font-size: 2.6rem;
 		font-weight: bold;
 	}
 	.top-bar__right-content {
@@ -59,6 +90,7 @@
 	}
 
 	.top-bar__right-content h3 {
+		display: none;
 		font-size: 1.6rem;
 		font-weight: bold;
 	}
@@ -66,7 +98,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: 123px;
 		height: 24px;
 		margin-left: 12px;
 		margin-right: 46px;
@@ -86,5 +117,18 @@
 
 	.top-bar-item-wrapper + .top-bar-item-wrapper {
 		margin-left: 16px;
+	}
+
+	@media (min-width: 900px) {
+		.top-bar__right-content h3 {
+			display: inline-block;
+		}
+		.top-bar__profile-dropdown {
+			width: 123px;
+		}
+		.top-bar h2 {
+			font-size: 3.2rem;
+			font-weight: bold;
+		}
 	}
 </style>
