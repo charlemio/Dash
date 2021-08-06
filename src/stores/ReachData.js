@@ -27,4 +27,5 @@ let data = {
   totalOrganicReach,
 }
 
-export const ReachData = writable(data);
+export const reachData = writable(data);
+export const activeTimeSpan = writable('daily');

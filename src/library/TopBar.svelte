@@ -13,7 +13,7 @@
 	let width;
 
 	$: {
-		if (width <= 900) {
+		if (width < 1000) {
 			$padding = 72;
 		} else if ($sidePanelOpen) {
 			$padding = 312;
@@ -117,7 +117,7 @@
 		margin-left: 16px;
 	}
 
-	@media (min-width: 900px) {
+	@media (min-width: 600px) {
 		.top-bar__right-content h3 {
 			display: inline-block;
 		}

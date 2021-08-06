@@ -23,7 +23,7 @@
 
 	$: {
 		console.log(`toggling padding with width ${width}`);
-		if (width < 900) {
+		if (width < 1000) {
 			$padding = 0;
 		} else if ($sidePanelOpen) {
 			$padding = 260;
@@ -73,20 +73,17 @@
 			grid-template-areas:
 				'reach reach reach'
 				'demographic demographic top-channels';
-			grid-template-rows: 1fr 1fr;
+			grid-template-rows: 6fr 5fr;
 			gap: 24px;
 			margin: 17px 34px 35px 32px;
 		}
 		.reach {
-			height: unset;
 			grid-area: reach;
 		}
 		.demographic {
-			height: unset;
 			grid-area: demographic;
 		}
 		.top-channels {
-			height: unset;
 			grid-area: top-channels;
 		}
 	}
