@@ -68,10 +68,8 @@
 	}
 	.top-bar__hamburger-button {
 		position: absolute;
-		left: 20px;
-		top: 22px;
-		width: 40px;
-		height: 40px;
+		left: 12px;
+		width: 50px;
 		outline: none;
 		transform: scale(0.75);
 	}
