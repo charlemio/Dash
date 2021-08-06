@@ -37,7 +37,7 @@
 				<h2 class="side-panel__group__label">Workspace</h2>
 				<MenuItem href="/accounts" name="Accounts" icon="../static/User_box.svg" />
 				<MenuItem href="/schedule" name="Schedule Post" icon="../static/Calendar.svg" />
-				<MenuItem href="/communities" name="Communities" icon="../static/Search.svg" />
+				<MenuItem href="/communities" name="Communities" icon="../static/Search-alt.svg" />
 				<MenuItem href="/analytics" name="Analytics" icon="../static/Chart.svg" />
 			</div>
 			<div class="side-panel__group">
@@ -66,7 +66,7 @@
 		class="hamburger-button"
 		on:click={toggleSidePanel}
 	>
-		<img src="../static/bars-solid.svg" alt="toggle side bar" />
+		<img src="../static/Hamburger.svg" alt="toggle side bar" />
 	</button>
 {/if}
 

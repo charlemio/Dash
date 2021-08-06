@@ -1,21 +1,26 @@
 <!-- The dashboard view -->
 <script>
+	// Svelte imports
+	import { fade } from 'svelte/transition';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
+
+	// Local imports
 	import Card from '../library/Card.svelte';
 	import Reach from '../library/Reach.svelte';
 	import Demographic from '../library/Demographic.svelte';
 	import TopChannels from '../library/TopChannels.svelte';
 
+	// Stores
 	import { sidePanelOpen } from '../stores/AppState';
 
-	const padding = tweened(0, {
+	const padding = tweened(260, {
 		duration: 300,
 		easing: cubicOut
 	});
 
 	$: {
-    console.log('toggling padding');
+		console.log('toggling padding');
 		if ($sidePanelOpen) {
 			$padding = 260;
 		} else {
@@ -24,9 +29,8 @@
 	}
 </script>
 
-<div class="dashboard" style="padding-left: {$padding}px">
-	<!-- Top bar component -->
-	<div class="top-bar" ><h2>Dashboard</h2></div>
+<div in:fade class="dashboard" style="padding-left: {$padding}px">
+
 	<!-- Reach component -->
 	<div class="reach">
 		<Card>
@@ -54,35 +58,23 @@
 		display: grid;
 		flex-grow: 1;
 		grid-template-areas:
-			'top-bar top-bar top-bar'
-			'reach reach reach'
-			'demographic demographic top-channels';
-		grid-template-rows: 90px 1fr 1fr;
-		gap: 1.41%;
-    margin: 0px 2% 1.52% 1.82%;
+		/* 'top-bar top-bar top-bar' */
+		'reach reach reach'
+		'demographic demographic top-channels';
+		grid-template-rows: 1fr 1fr;
+		gap: 24px;
+		margin: 17px 34px 35px 32px;
 	}
-	.top-bar {
-		grid-area: top-bar;
-    height: 100%;
-    display: flex;
-    align-items: center;
-	}
-
-  .top-bar h2 {
-    padding-left: 58px;
-    font-size: 3.2rem;
-    font-weight: bold;
-  }
 	.reach {
 		grid-area: reach;
-    height: 100%;
+		height: 100%;
 	}
 	.demographic {
 		grid-area: demographic;
-    height: 100%;
+		height: 100%;
 	}
 	.top-channels {
 		grid-area: top-channels;
-    height: 100%;
+		height: 100%;
 	}
 </style>
