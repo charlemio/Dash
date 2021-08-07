@@ -1,8 +1,12 @@
 <script>
+  // Library
 	import { fade } from 'svelte/transition';
 
+  // Local components
+  import Chart from '../library/Chart.svelte';
+
 	// Stores
-	import { reachData } from '../stores/ReachData';
+	import { totalReach, totalPaidReach, totalOrganicReach } from '../stores/ReachData';
 	import { activeTimeSpan } from '../stores/ReachData';
 
 	let width;
@@ -15,29 +19,29 @@
 		<div class="top-row__left-content">
 			<div class="top-row__total-reach">
 				{#if width > 700}
-					<img src="../static/TotalReachIcon.svg" transition:fade class="total-reach__icon" />
+					<img src="../static/TotalReachIcon.svg" transition:fade class="total-reach__icon" alt='Total reach icon'/>
 				{/if}
 				<div class="key-number">
 					<h2>Total Reach</h2>
-					<h3>{$reachData.totalReach}K</h3>
+					<h3>{totalReach}K</h3>
 				</div>
 			</div>
 			<div class="top-row__paid-reach">
 				{#if width > 700}
-					<img src="../static/PaidReachIcon.svg" transition:fade class="paid-reach__icon" />
+					<img src="../static/PaidReachIcon.svg" transition:fade class="paid-reach__icon" alt='Paid reach icon'/>
 				{/if}
 				<div class="key-number">
 					<h2>Total Paid Reach</h2>
-					<h3>{$reachData.totalPaidReach}K</h3>
+					<h3>{totalPaidReach}K</h3>
 				</div>
 			</div>
 			<div class="top-row__organic-reach">
 				{#if width > 700}
-					<img src="../static/OrganicReachIcon.svg" transition:fade class="organic-reach__icon" />
+					<img src="../static/OrganicReachIcon.svg" transition:fade class="organic-reach__icon" alt='Organic reach icon'/>
 				{/if}
 				<div class="key-number">
 					<h2>Total Organic Reach</h2>
-					<h3>{$reachData.totalOrganicReach}K</h3>
+					<h3>{totalOrganicReach}K</h3>
 				</div>
 			</div>
 		</div>
@@ -56,7 +60,7 @@
 			</li>
 		</ul>
 	</div>
-	<div class="reach__chart-container">Chart displays here</div>
+	<div class="reach__chart-container"><Chart /></div>
 </div>
 
 <style>
