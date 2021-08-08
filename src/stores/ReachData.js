@@ -2,8 +2,6 @@ import {
   writable
 } from 'svelte/store';
 
-console.log('initializing dummy data');
-
 const sum = arr => {
   return arr.reduce((a, b) => a + b, 0);
 }
