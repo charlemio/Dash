@@ -62,7 +62,6 @@
 		flex-grow: 1;
 		margin: 10px;
 	}
-
 	.dashboard > * + * {
 		margin-top: 7px;
 	}
@@ -72,9 +71,12 @@
 			grid-template-areas:
 				'reach reach reach'
 				'demographic demographic top-channels';
-			grid-template-rows: 6fr 5fr;
-			gap: 24px;
+			grid-template-rows: 1fr auto;
+			gap: 23px;
 			margin: 17px 34px 35px 32px;
+		}
+		.dashboard > * + * {
+			margin-top: 0px;
 		}
 		.reach {
 			grid-area: reach;

@@ -26,19 +26,19 @@
 			<div class="side-panel__group">
 				<h2 class="side-panel__group__label">MAIN MENU</h2>
 				<MenuItem href="/" name="Dashboard" icon="../static/Bars.svg" />
-				<MenuItem name="Inbox" icon="../static/Chat.svg" notificationCount={1} />
+				<MenuItem href="/" name="Icons" icon="../static/Chat.svg" notificationCount={1} />
 			</div>
 			<div class="side-panel__group">
 				<h2 class="side-panel__group__label">Workspace</h2>
-				<MenuItem href="/accounts" name="Accounts" icon="../static/User_box.svg" />
-				<MenuItem href="/schedule" name="Schedule Post" icon="../static/Calendar.svg" />
-				<MenuItem href="/communities" name="Communities" icon="../static/Search-alt.svg" />
-				<MenuItem href="/analytics" name="Analytics" icon="../static/Chart.svg" />
+				<MenuItem href="/" name="Accounts" icon="../static/User_box.svg" />
+				<MenuItem href="/" name="Schedule Post" icon="../static/Calendar.svg" />
+				<MenuItem href="/" name="Communities" icon="../static/Search-alt.svg" />
+				<MenuItem href="/" name="Analytics" icon="../static/Chart.svg" />
 			</div>
 			<div class="side-panel__group">
 				<h2 class="side-panel__group__label">General</h2>
-				<MenuItem href="/filesandfolders" name="File & Folders" icon="../static/Folder.svg" />
-				<MenuItem href="/settings" name="Settings" icon="../static/Settings.svg" />
+				<MenuItem href="/" name="File & Folders" icon="../static/Folder.svg" />
+				<MenuItem href="/" name="Settings" icon="../static/Settings.svg" />
 			</div>
 		</div>
 

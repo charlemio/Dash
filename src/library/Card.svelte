@@ -4,7 +4,7 @@
     height: 100%;
     border-radius: 8px;
     background: white;
-    box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.055);
+    box-shadow: 4px 2px 12px rgba(0, 0, 0, 0.055);
     overflow: hidden;
   }
 </style>

@@ -6,7 +6,7 @@
 <div class="demographic">
 	<div class="top-row">
 		<div class="top-row__left-content">
-			<img src="../static/PieIcon.svg" alt="Pie chart icon" />
+			<img src="../static/PieIconDark.svg" alt="Pie chart icon" />
 			<h1>Demographic</h1>
 		</div>
 		<div class="top-row__right-content">
@@ -43,9 +43,9 @@
 				<img class="age-table__span" src="AgeTableSpan.svg" alt="Age table span" />
 				{#each $demographicData.age as category}
 					<div class="age-table__row">
-						<div>
+						<div class="age-table__row__label">
 							<span class="age-table__row__icon" style="background: {category.color}" />
-							<span class="age-table__row__label">{category.label}</span>
+							{category.label} years old
 						</div>
 						<div class="age-table__row__value">{category.value}</div>
 						<div class="age-table__row__percentage">{category.percentage}</div>
@@ -164,6 +164,7 @@
 	.age-table__row {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		margin-top: 16px;
 	}
 	.age-table__row__icon {
@@ -175,20 +176,25 @@
 	}
 	.age-table__row__label {
 		font-size: 1.8rem;
+		width: 170px;
 	}
 	.age-table__row__value {
 		font-size: 1.8rem;
 		font-weight: bold;
+		/* padding-left: 20px; */
+		width: 70px;
+		text-align: end;
 	}
 	.age-table__row__percentage {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 32px;
-		height: 32px;
+		width: 38px;
+		height: 38px;
 		font-size: 1.4rem;
 		font-weight: bold;
 		background: #e6f2fe;
+		color: var(--accent-color);
 		border-radius: 50%;
 	}
 </style>
