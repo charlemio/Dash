@@ -64,7 +64,7 @@
 		min-height: 90px;
 		align-items: center;
 		justify-content: space-between;
-		border-bottom: 1px solid #dadada;
+		border-bottom: 2px solid rgb(0, 0, 0, 0.05);
 	}
 	.top-bar__hamburger-button {
 		position: absolute;

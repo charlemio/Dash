@@ -22,12 +22,11 @@
 	let width;
 
 	$: {
-		console.log(`toggling padding with width ${width}`);
 		if (width < 1000) {
 			$padding = 0;
 		} else if ($sidePanelOpen) {
 			$padding = 260;
-		} else {
+		} else if (!$sidePanelOpen) {
 			$padding = 0;
 		}
 	}
