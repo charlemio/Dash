@@ -9,10 +9,10 @@
 			<img src="../static/PieIconDark.svg" alt="Pie chart icon" />
 			<h1>Demographic</h1>
 		</div>
-		<div class="top-row__right-content">
-			<a href="/">See detail</a>
+		<a href="/" class="top-row__right-content"
+			>See detail
 			<img src="../static/Greater.svg" alt="Greater than icon" />
-		</div>
+		</a>
 	</div>
 	<div class="main-content">
 		<div class="main-content__left">
@@ -82,8 +82,6 @@
 	}
 	.top-row__right-content {
 		display: flex;
-	}
-	.top-row__right-content a {
 		color: var(--accent-color);
 		font-size: 2rem;
 		font-weight: bold;
@@ -120,13 +118,13 @@
 	}
 	.pie-chart__female-number {
 		position: absolute;
-		bottom: 10px;
-		left: 155px;
+		bottom: -10px;
+		left: 150px;
 	}
 	.pie-chart__other-number {
 		position: absolute;
-		bottom: -10px;
-		left: -20px;
+		bottom: -25px;
+		left: -15px;
 	}
 	.pie-chart__legend {
 		margin-bottom: 44px;
@@ -181,7 +179,6 @@
 	.age-table__row__value {
 		font-size: 1.8rem;
 		font-weight: bold;
-		/* padding-left: 20px; */
 		width: 70px;
 		text-align: end;
 	}

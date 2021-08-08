@@ -8,10 +8,10 @@
 			<img src="../static/PieIconLight.svg" alt="Pie chart icon" />
 			<h1>Top Channels</h1>
 		</div>
-		<div class="top-row__right-content">
-			<a href="/">See detail</a>
+		<a class="top-row__right-content" href="/"
+			>See detail
 			<img src="../static/Greater.svg" alt="Greater than icon" />
-		</div>
+		</a>
 	</div>
 	<div class="top-channels__table-heading">
 		<h3>Source</h3>
@@ -20,7 +20,7 @@
 	{#each $topChannelsData as channel}
 		<div class="top-channels__row">
 			<div class="top-channels__row__label">
-				<img src={channel.icon} alt="${channel.label} icon"/>
+				<img src={channel.icon} alt="${channel.label} icon" />
 				<span>{channel.label}</span>
 			</div>
 			<div class="top-channels__row__value">{channel.value}</div>
@@ -55,8 +55,6 @@
 	}
 	.top-row__right-content {
 		display: flex;
-	}
-	.top-row__right-content a {
 		color: var(--accent-color);
 		font-size: 2rem;
 		font-weight: bold;
@@ -81,7 +79,7 @@
 		margin-top: 16px;
 		margin-left: 20px;
 		margin-right: 20px;
-		background: rgba(0,0,0,0.022);
+		background: rgba(0, 0, 0, 0.022);
 		border-radius: 4px;
 	}
 	.top-channels__row__label {

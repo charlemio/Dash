@@ -32,6 +32,11 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Dashboard | Dash</title>
+	<html lang="en-GB" />
+</svelte:head>
+
 <svelte:window bind:innerWidth={width} />
 
 <div in:fade class="dashboard" style="padding-left: {$padding}px">
