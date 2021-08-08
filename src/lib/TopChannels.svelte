@@ -1,17 +1,24 @@
 <script>
 	import { topChannelsData } from '../stores/TopChannelData';
+
+	import PieIconLight from '../../static/PieIconLight.svg';
+	import Greater from '../../static/Greater.svg';
+	import Facebook from '../../static/FacebookIcon.svg';
+	import Instagram from '../../static/InstagramIcon.svg';
+	import LinkedIn from '../../static/LinkedInIcon.svg';
+	import YouTube from '../../static/YouTubeIcon.svg';
 </script>
 
 <div class="top-channels">
 	<div class="top-row">
 		<div class="top-row__left-content">
-			<img src="../static/PieIconLight.svg" alt="Pie chart icon" />
+			<img src={PieIconLight} alt="Pie chart icon" />
 			<h1>Top Channels</h1>
 		</div>
-		<div class="top-row__right-content">
-			<a href="/">See detail</a>
-			<img src="../static/Greater.svg" alt="Greater than icon" />
-		</div>
+		<a class="top-row__right-content" href="/"
+			>See detail
+			<img src={Greater} alt="Greater than icon" />
+		</a>
 	</div>
 	<div class="top-channels__table-heading">
 		<h3>Source</h3>
@@ -20,7 +27,15 @@
 	{#each $topChannelsData as channel}
 		<div class="top-channels__row">
 			<div class="top-channels__row__label">
-				<img src={channel.icon} alt="${channel.label} icon"/>
+				{#if channel.label === 'Facebook'}
+					<img src={Facebook} alt="${channel.label} icon" />
+				{:else if channel.label === 'Instagram'}
+					<img src={Instagram} alt="${channel.label} icon" />
+				{:else if channel.label === 'LinkedIn'}
+					<img src={LinkedIn} alt="${channel.label} icon" />
+				{:else if channel.label === 'YouTube'}
+					<img src={YouTube} alt="${channel.label} icon" />
+				{/if}
 				<span>{channel.label}</span>
 			</div>
 			<div class="top-channels__row__value">{channel.value}</div>
@@ -55,8 +70,6 @@
 	}
 	.top-row__right-content {
 		display: flex;
-	}
-	.top-row__right-content a {
 		color: var(--accent-color);
 		font-size: 2rem;
 		font-weight: bold;
@@ -81,7 +94,7 @@
 		margin-top: 16px;
 		margin-left: 20px;
 		margin-right: 20px;
-		background: rgba(0,0,0,0.022);
+		background: rgba(0, 0, 0, 0.022);
 		border-radius: 4px;
 	}
 	.top-channels__row__label {

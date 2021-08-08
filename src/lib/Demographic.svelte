@@ -1,46 +1,43 @@
 <script>
 	import { demographicData } from '../stores/DemographicData';
 	import Card from './Card.svelte';
+
+	import PieIconDark from '../../static/PieIconDark.svg';
+	import Greater from '../../static/Greater.svg';
+	import PieChart from '../../static/PieChart.svg';
+	import PieChartMaleNumber from '../../static/PieChartMaleNumber.svg';
+	import PieChartFemaleNumber from '../../static/PieChartFemaleNumber.svg';
+	import PieChartOtherNumber from '../../static/PieChartOtherNumber.svg';
+	import PieChartLegend from '../../static/PieChartLegend.svg';
+	import AgeTableSpan from '../../static/AgeTableSpan.svg';
 </script>
 
 <div class="demographic">
 	<div class="top-row">
 		<div class="top-row__left-content">
-			<img src="../static/PieIconDark.svg" alt="Pie chart icon" />
+			<img src={PieIconDark} alt="Pie chart icon" />
 			<h1>Demographic</h1>
 		</div>
-		<div class="top-row__right-content">
-			<a href="/">See detail</a>
-			<img src="../static/Greater.svg" alt="Greater than icon" />
-		</div>
+		<a href="/" class="top-row__right-content"
+			>See detail
+			<img src={Greater} alt="Greater than icon" />
+		</a>
 	</div>
 	<div class="main-content">
 		<div class="main-content__left">
 			<div class="main-content__pie-chart">
 				<h2>Gender</h2>
-				<img src="../static/PieChart.svg" alt="Pie chart" />
-				<img
-					class="pie-chart__number pie-chart__male-number"
-					src="../static/PieChartMaleNumber.svg"
-					alt=""
-				/>
-				<img
-					class="pie-chart__number pie-chart__female-number"
-					src="../static/PieChartFemaleNumber.svg"
-					alt=""
-				/>
-				<img
-					class="pie-chart__number pie-chart__other-number"
-					src="../static/PieChartOtherNumber.svg"
-					alt=""
-				/>
+				<img src={PieChart} alt="Pie chart" />
+				<img class="pie-chart__number pie-chart__male-number" src={PieChartMaleNumber} alt="" />
+				<img class="pie-chart__number pie-chart__female-number" src={PieChartFemaleNumber} alt="" />
+				<img class="pie-chart__number pie-chart__other-number" src={PieChartOtherNumber} alt="" />
 			</div>
-			<img class="pie-chart__legend" src="../static/PieChartLegend.svg" alt="Pie chart legend" />
+			<img class="pie-chart__legend" src={PieChartLegend} alt="Pie chart legend" />
 		</div>
 		<div class="main-content__right">
 			<div class="main-content__age-table">
 				<h2>Audience Age</h2>
-				<img class="age-table__span" src="AgeTableSpan.svg" alt="Age table span" />
+				<img class="age-table__span" src={AgeTableSpan} alt="Age table span" />
 				{#each $demographicData.age as category}
 					<div class="age-table__row">
 						<div class="age-table__row__label">
@@ -82,8 +79,6 @@
 	}
 	.top-row__right-content {
 		display: flex;
-	}
-	.top-row__right-content a {
 		color: var(--accent-color);
 		font-size: 2rem;
 		font-weight: bold;
@@ -120,13 +115,13 @@
 	}
 	.pie-chart__female-number {
 		position: absolute;
-		bottom: 10px;
-		left: 155px;
+		bottom: -10px;
+		left: 150px;
 	}
 	.pie-chart__other-number {
 		position: absolute;
-		bottom: -10px;
-		left: -20px;
+		bottom: -25px;
+		left: -15px;
 	}
 	.pie-chart__legend {
 		margin-bottom: 44px;
@@ -181,7 +176,6 @@
 	.age-table__row__value {
 		font-size: 1.8rem;
 		font-weight: bold;
-		/* padding-left: 20px; */
 		width: 70px;
 		text-align: end;
 	}

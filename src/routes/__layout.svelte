@@ -1,7 +1,7 @@
 <script>
 	import '../app.postcss';
-	import SidePanel from '../library/SidePanel.svelte';
-	import TopBar from '../library/TopBar.svelte';
+	import SidePanel from '../lib/SidePanel.svelte';
+	import TopBar from '../lib/TopBar.svelte';
 </script>
 
 <div class="app">
