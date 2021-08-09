@@ -80,6 +80,7 @@
 		min-height: 100%;
 		background: var(--primary-color);
 		transition: 0.4s ease;
+		z-index: 1;
 	}
 	.side-panel__top-content {
 		display: flex;
