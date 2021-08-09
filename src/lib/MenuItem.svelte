@@ -6,7 +6,7 @@
 </script>
 
 <!-- the on:click handles closing of side panel for smaller screens -->
-<a href={href} class="menu-item">
+<a {href} class="menu-item">
 	<div class="menu-item__label"><img src={icon} alt="" /> {name}</div>
 	{#if notificationCount > 0}
 		<div class="menu-item__notification">{notificationCount}</div>

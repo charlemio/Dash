@@ -1,13 +1,18 @@
 <script>
-  // Library
+	// Library
 	import { fade } from 'svelte/transition';
 
-  // Local components
-  import Chart from '../library/Chart.svelte';
+	// Local components
+	import Chart from './Chart.svelte';
 
 	// Stores
 	import { totalReach, totalPaidReach, totalOrganicReach } from '../stores/ReachData';
 	import { activeTimeSpan } from '../stores/ReachData';
+
+	// SVGs
+	import TotalReachIcon from '../../static/TotalReachIcon.svg';
+	import PaidReachIcon from '../../static/PaidReachIcon.svg';
+	import OrganicReachIcon from '../../static/OrganicReachIcon.svg';
 
 	let width;
 </script>
@@ -19,7 +24,12 @@
 		<div class="top-row__left-content">
 			<div class="top-row__total-reach">
 				{#if width > 700}
-					<img src="../static/TotalReachIcon.svg" transition:fade class="total-reach__icon" alt='Total reach icon'/>
+					<img
+						src={TotalReachIcon}
+						transition:fade
+						class="total-reach__icon"
+						alt="Total reach icon"
+					/>
 				{/if}
 				<div class="key-number">
 					<h2>Total Reach</h2>
@@ -28,7 +38,7 @@
 			</div>
 			<div class="top-row__paid-reach">
 				{#if width > 700}
-					<img src="../static/PaidReachIcon.svg" transition:fade class="paid-reach__icon" alt='Paid reach icon'/>
+					<img src={PaidReachIcon} transition:fade class="paid-reach__icon" alt="Paid reach icon" />
 				{/if}
 				<div class="key-number">
 					<h2>Total Paid Reach</h2>
@@ -37,7 +47,12 @@
 			</div>
 			<div class="top-row__organic-reach">
 				{#if width > 700}
-					<img src="../static/OrganicReachIcon.svg" transition:fade class="organic-reach__icon" alt='Organic reach icon'/>
+					<img
+						src={OrganicReachIcon}
+						transition:fade
+						class="organic-reach__icon"
+						alt="Organic reach icon"
+					/>
 				{/if}
 				<div class="key-number">
 					<h2>Total Organic Reach</h2>
@@ -70,7 +85,6 @@
 		justify-content: center;
 		align-items: center;
 		height: 100%;
-		/* min-height: 400px; */
 		font-size: 3rem;
 		padding: 27px 24px;
 	}
@@ -98,7 +112,6 @@
 		font-size: 1.4rem;
 	}
 	.key-number h3 {
-		/* text-align: center; */
 		font-size: 3.2rem;
 		font-weight: bold;
 		line-height: 4rem;
@@ -136,7 +149,6 @@
 		background: #ffe9f5;
 	}
 	.top-row__right-content {
-		/* flex-grow: 1; */
 		justify-self: flex-end;
 		background: #f5f7fb;
 		list-style: none;
@@ -162,7 +174,6 @@
 	}
 	.active {
 		background: white !important;
-		/* font-weight: bold !important; */
 		color: var(--accent-color) !important;
 	}
 	.active:hover {
@@ -171,9 +182,9 @@
 	.reach__chart-container {
 		flex-grow: 1;
 		width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	@media (min-width: 400px) {
 		.top-row__right-content {

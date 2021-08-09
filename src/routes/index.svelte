@@ -1,4 +1,8 @@
 <!-- The dashboard view -->
+<script context="module" lang="ts">
+	export const prerender = true;
+</script>
+
 <script>
 	// Svelte imports
 	import { fade } from 'svelte/transition';
@@ -6,10 +10,10 @@
 	import { cubicOut } from 'svelte/easing';
 
 	// Local imports
-	import Card from '../library/Card.svelte';
-	import Reach from '../library/Reach.svelte';
-	import Demographic from '../library/Demographic.svelte';
-	import TopChannels from '../library/TopChannels.svelte';
+	import Card from '../lib/Card.svelte';
+	import Reach from '../lib/Reach.svelte';
+	import Demographic from '../lib/Demographic.svelte';
+	import TopChannels from '../lib/TopChannels.svelte';
 
 	// Stores
 	import { sidePanelOpen } from '../stores/AppState';

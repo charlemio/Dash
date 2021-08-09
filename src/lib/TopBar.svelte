@@ -5,6 +5,12 @@
 
 	import { sidePanelOpen } from '../stores/AppState';
 
+	import Hamburger from '../../static/Hamburger.svg';
+	import Search from '../../static/Search.svg';
+	import Bell from '../../static/Bell.svg';
+	import ProfilePic from '../../static/ProfilePic.svg';
+	import ChevronDown from '../../static/ChevronDown.svg';
+
 	const padding = tweened(260, {
 		duration: 300,
 		easing: cubicOut
@@ -33,25 +39,20 @@
 			class="top-bar__hamburger-button"
 			on:click={() => ($sidePanelOpen = !$sidePanelOpen)}
 		>
-			<img src="../static/Hamburger.svg" alt="toggle side bar" />
+			<img src={Hamburger} alt="toggle side bar" />
 		</button>
 	{/if}
 	<h2>Dashboard</h2>
 	<div class="top-bar__right-content">
 		<!-- Top right utility buttons -->
-		<a href="." class="top-bar-item-wrapper"><img src="../static/Search.svg" alt="Search icon" /></a
-		>
-		<a href="." class="top-bar-item-wrapper"
-			><img src="../static/Bell.svg" alt="Notification bell" /></a
-		>
+		<a href="." class="top-bar-item-wrapper"><img src={Search} alt="Search icon" /></a>
+		<a href="." class="top-bar-item-wrapper"><img src={Bell} alt="Notification bell" /></a>
 
 		<!-- Profile content -->
-		<a href="." class="top-bar-item-wrapper"
-			><img src="../static/ProfilePic.svg" alt="Profile avatar" /></a
-		>
+		<a href="." class="top-bar-item-wrapper"><img src={ProfilePic} alt="Profile avatar" /></a>
 		<button class="top-bar__profile-dropdown"
 			><h3>Erza Miller</h3>
-			<div class="profile-dropdown__icon"><img src="../static/ChevronDown.svg" alt="" /></div>
+			<div class="profile-dropdown__icon"><img src={ChevronDown} alt="" /></div>
 		</button>
 	</div>
 </div>

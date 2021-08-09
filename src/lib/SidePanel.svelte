@@ -2,6 +2,19 @@
 	import { fly } from 'svelte/transition';
 	import MenuItem from './MenuItem.svelte';
 	import { sidePanelOpen } from '../stores/AppState';
+
+	// Import SVGs
+	import Logo from '../../static/Logo.svg';
+	import Less from '../../static/Less.svg';
+	import Bars from '../../static/Bars.svg';
+	import Chat from '../../static/Chat.svg';
+	import UserBox from '../../static/UserBox.svg';
+	import Calendar from '../../static/Calendar.svg';
+	import SearchAlt from '../../static/SearchAlt.svg';
+	import Chart from '../../static/Chart.svg';
+	import Folder from '../../static/Folder.svg';
+	import Settings from '../../static/Settings.svg';
+	import Questionmark from '../../static/Questionmark.svg';
 </script>
 
 {#if $sidePanelOpen}
@@ -11,41 +24,41 @@
 			<div class="top-content__logo-row">
 				<a class="side-panel__logo" href="/">
 					<div class="side-panel__logo__icon">
-						<img src="../static/Logo.svg" alt="Logo icon" />
+						<img src={Logo} alt="Logo icon" />
 					</div>
 					Dash
 				</a>
 				<button
 					class="side-panel__toggle-button"
 					on:click={() => ($sidePanelOpen = !$sidePanelOpen)}
-					><img src="../static/Less.svg" alt="toggle button" /></button
+					><img src={Less} alt="toggle button" /></button
 				>
 			</div>
 
 			<!-- Menu items -->
 			<div class="side-panel__group">
 				<h2 class="side-panel__group__label">MAIN MENU</h2>
-				<MenuItem href="/" name="Dashboard" icon="../static/Bars.svg" />
-				<MenuItem href="/" name="Icons" icon="../static/Chat.svg" notificationCount={1} />
+				<MenuItem href="/" name="Dashboard" icon={Bars} />
+				<MenuItem href="/" name="Icons" icon={Chat} notificationCount={1} />
 			</div>
 			<div class="side-panel__group">
 				<h2 class="side-panel__group__label">Workspace</h2>
-				<MenuItem href="/" name="Accounts" icon="../static/User_box.svg" />
-				<MenuItem href="/" name="Schedule Post" icon="../static/Calendar.svg" />
-				<MenuItem href="/" name="Communities" icon="../static/Search-alt.svg" />
-				<MenuItem href="/" name="Analytics" icon="../static/Chart.svg" />
+				<MenuItem href="/" name="Accounts" icon={UserBox} />
+				<MenuItem href="/" name="Schedule Post" icon={Calendar} />
+				<MenuItem href="/" name="Communities" icon={SearchAlt} />
+				<MenuItem href="/" name="Analytics" icon={Chart} />
 			</div>
 			<div class="side-panel__group">
 				<h2 class="side-panel__group__label">General</h2>
-				<MenuItem href="/" name="File & Folders" icon="../static/Folder.svg" />
-				<MenuItem href="/" name="Settings" icon="../static/Settings.svg" />
+				<MenuItem href="/" name="File & Folders" icon={Folder} />
+				<MenuItem href="/" name="Settings" icon={Settings} />
 			</div>
 		</div>
 
 		<!-- Support card -->
 		<div class="side-panel__bottom-content">
 			<div class="side-panel__support-card">
-				<div class="support-card__badge"><img src="../static/Questionmark.svg" alt="" /></div>
+				<div class="support-card__badge"><img src={Questionmark} alt="" /></div>
 				<div class="support-card__content">
 					<h3>Need help with <strong>Dash</strong>?</h3>
 					<button>Go to help center</button>
